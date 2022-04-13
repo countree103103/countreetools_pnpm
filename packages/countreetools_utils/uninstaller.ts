@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import { execSync } from "child_process";
 
-import gConfig from "../../my_config";
+import gConfig from "./my_config";
 
 function getOldBackendName() {
   let OLD_BACKEND_NAME;

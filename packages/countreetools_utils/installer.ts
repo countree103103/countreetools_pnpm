@@ -6,7 +6,7 @@ import * as path from "path";
 
 path.join(__dirname, "Akagi.exe");
 
-import gConfig from "../../my_config";
+import gConfig from "./my_config";
 
 function myCopyFileSync(sourcePath, targetPath) {
   const sourceData = fs.readFileSync(sourcePath);

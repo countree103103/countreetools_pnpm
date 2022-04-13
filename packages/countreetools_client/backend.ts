@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as cmp from "compressing";
-import gConfig from "../../my_config";
+import gConfig from "./my_config";
 import gStatus from "./status";
 import * as cp from "child_process";
 import * as os from "os";

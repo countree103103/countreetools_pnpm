@@ -1,4 +1,4 @@
-import myConfig from "../../my_config";
+import myConfig from "./my_config";
 const { NSSM_PATH } = myConfig;
 import { execSync } from "child_process";
 
