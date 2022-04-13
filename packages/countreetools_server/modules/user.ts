@@ -1,7 +1,7 @@
 import ss from "socket.io-stream";
 import * as fs from "fs";
 import myUtils from "../utils";
-import { IOS } from "..";
+import { IOS } from "../sockerServer";
 
 const cmdResult = {
   data: "",

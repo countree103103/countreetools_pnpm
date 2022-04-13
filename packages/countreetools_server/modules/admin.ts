@@ -1,5 +1,5 @@
 import myUtils from "../utils";
-import { IOS } from "../index";
+import { IOS } from "../sockerServer";
 
 export default function adminIoInit(ios: IOS) {
   const { userIo, adminIo } = ios;
