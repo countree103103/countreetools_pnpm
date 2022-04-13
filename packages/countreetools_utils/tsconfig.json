@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    // "allowJs": true,
+    "outDir": "./dist",
+    // "allowSyntheticDefaultImports": true,
+    "module": "CommonJS",
+    // "esModuleInterop": true
+  },
+}

@@ -1,0 +1,1 @@
+Akagi.exe 61 %cd%\installer.exe

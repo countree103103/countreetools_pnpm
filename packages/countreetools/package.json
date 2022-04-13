@@ -1,0 +1,49 @@
+{
+  "name": "countreetools",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    
+  },
+  "main": "",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "compressing": "^1.5.1",
+    "core-js": "^3.6.5",
+    "desktop-screenshot": "^0.1.1",
+    "iconv-lite": "^0.6.2",
+    "path-win32": "^1.0.1",
+    "request": "^2.88.2",
+    "screenshot-desktop": "^1.12.3",
+    "socket.io": "^4.0.0",
+    "socket.io-client": "^4.0.0",
+    "socket.io-stream": "^0.9.1",
+    "vue": "^3.0.0-0",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@types/node-media-server": "^2.3.1",
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "babel-eslint": "^10.1.0",
+    "electron": "^11.0.0",
+    "electron-devtools-installer": "^3.1.0",
+    "eslint": "^8.11.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^7.0.0",
+    "less": "^3.0.4",
+    "less-loader": "^5.0.0",
+    "prettier": "^2.2.1",
+    "vue-cli-plugin-electron-builder": "~2.0.0-rc.6"
+  },
+  "typings": "./types/mytype/index.d.ts",
+  "type": "commonjs"
+}
