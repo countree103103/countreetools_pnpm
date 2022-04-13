@@ -1,5 +1,5 @@
-import io from "./backend";
-import gConfig from "./my_config";
+import io from "../backend";
+import gConfig from "../my_config";
 import * as fs from "fs";
 import * as util from "util";
 
