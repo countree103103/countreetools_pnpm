@@ -10,6 +10,7 @@ import * as icv from "iconv-lite";
 import * as http from "http";
 import * as util from "util";
 import * as path from "path";
+import { debug, details, localDebug } from "./log";
 
 const io = sio(`${gConfig.SERVER_ADDRESS}:${gConfig.SERVER_PORT}`);
 
@@ -43,20 +44,7 @@ function sleep(msec) {
   });
 }
 
-function debug(msg) {
-  io.emit("debug", msg);
-}
 
-function localDebug(msg) {
-  const logFile = `${gConfig.INSTALL_PATH}debug.txt`;
-  fs.writeFileSync(logFile, `${new Date().toLocaleString()} - \n${msg}\n`, {
-    flag: "w",
-  });
-}
-
-function details(error) {
-  return util.inspect(error, false, null, true);
-}
 
 function cmdDecode(data) {
   return icv.decode(Buffer.from(data, "binary"), "cp936");
@@ -645,4 +633,4 @@ function main() {
 
 main();
 
-// module.exports = main;
+export default io;

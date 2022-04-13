@@ -7,7 +7,6 @@ module.exports = {
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "eslint:recommended",
-    "@vue/prettier",
   ],
   parserOptions: {
     parser: "babel-eslint",
@@ -20,5 +19,7 @@ module.exports = {
     "no-undef": "off",
     "no-v-for-template-key-on-child": "off",
     endOfLine: "off",
+    "semi": [2, "always"],
+    "no-trailing-spaces": ["error", { "skipBlankLines": false }]
   },
 };
