@@ -20,6 +20,7 @@ module.exports = {
     "no-v-for-template-key-on-child": "off",
     endOfLine: "off",
     "semi": [2, "always"],
-    "no-trailing-spaces": ["error", { "skipBlankLines": false }]
+    "no-trailing-spaces": ["error", { "skipBlankLines": false }],
+    "comma-spacing": ["error", { "before": false, "after": true }]
   },
 };
