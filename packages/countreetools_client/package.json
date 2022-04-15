@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">=16"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc && pkg ./dist/bootstrapper.js -o ./dist/bootstrapper.exe && pkg ./dist/backend.js -o ./dist/backend.exe && pnpm rollup -c"
