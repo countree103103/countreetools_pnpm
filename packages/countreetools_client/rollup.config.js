@@ -5,7 +5,7 @@ import rollupJson from "@rollup/plugin-json";
 export default {
   input: 'dist/backend.js',
   output: {
-    file: 'bundle/r_bundle.js',
+    file: 'bundle/bundle.js',
     format: 'cjs'
   },
   plugins: [nodeResolve(), commonjs(), rollupJson()]
