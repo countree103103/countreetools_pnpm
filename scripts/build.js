@@ -3,8 +3,9 @@ import chalk from "chalk";
 import { execaCommandSync,execaSync,execa } from "execa";
 import path from "path";
 import { existsSync, fstat, readdirSync, rmdirSync, rmSync, statSync } from "fs";
+import os from "os"
 
-const __dirname = new URL('.',import.meta.url).pathname.replace(/^\//,"");
+const __dirname = os.platform == "win32" ? new URL('.',import.meta.url).pathname.replace(/^\//,"") : new URL('.',import.meta.url).pathname;
 let spin = ora();
 
 async function runBuild(packagesList){
