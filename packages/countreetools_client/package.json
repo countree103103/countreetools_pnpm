@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && pkg ./dist/bootstrapper.js -o ./dist/bootstrapper.exe && pkg ./dist/backend.js -o ./dist/backend.exe && pnpm rollup -c"
+    "build": "pnpm tsc && pnpm pkg ./dist/bootstrapper.js -o ./dist/bootstrapper.exe && pnpm pkg ./dist/backend.js -o ./dist/backend.exe && pnpm rollup -c"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +26,8 @@
     "@typescript-eslint/parser": "^5.19.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^8.13.0",
-    "rollup": "^2.70.1"
+    "pkg": "^5.6.0",
+    "rollup": "^2.70.1",
+    "typescript": "^4.6.3"
   }
 }
