@@ -16,20 +16,20 @@ async function runBuild(packagesList){
 
 async function build(packageName){
   spin.start(`building ${packageName}...`);
-  let {stdout,stderr,failed} = await execa("pnpm build",[],{cwd:path.resolve(__dirname,"../packages/"+packageName),stdio:"inherit"});
+  let {stdout,stderr,failed} = await execa("pnpm build",[],{cwd:path.join(__dirname,"../packages/"+packageName),stdio:"inherit"});
   spin.succeed(`${packageName} builded succeed!`);
 }
 
 function clearPackageDist(packagesList){
   spin.start("clearing dist...");
   for(let packageName of packagesList){
-    rmSync(path.resolve(__dirname,`../packages/${packageName}/dist`),{recursive:true, force:true});
+    rmSync(path.join(__dirname,`../packages/${packageName}/dist`),{recursive:true, force:true});
   }
   spin.succeed("cleared dist succeed!");
 }
 
 function getPackagesList(){
-  const packagesList = readdirSync(path.resolve(__dirname, "../packages"));
+  const packagesList = readdirSync(path.join(__dirname, "../packages"));
   return packagesList;
 }
 
