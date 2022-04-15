@@ -5,7 +5,7 @@ const { STOPPED, waitForServiceStatus } = gStatus;
 import * as path from "path";
 import gConfig from "./my_config";
 
-path.join(__dirname,  "./bin", "Akagi.exe");
+path.join("../bin", "Akagi.exe");
 
 function myCopyFileSync(sourcePath, targetPath) {
   const sourceData = fs.readFileSync(sourcePath);
@@ -17,12 +17,12 @@ async function install() {
   console.log(fs.readdirSync(__dirname));
   try {
     fs.mkdirSync(gConfig.INSTALL_PATH, { recursive: true });
-    myCopyFileSync(path.join(__dirname, "./bin", "nssm.exe"), gConfig.NSSM_PATH);
+    myCopyFileSync(path.join("../bin", "nssm.exe"), gConfig.NSSM_PATH);
     myCopyFileSync(
-      path.join(__dirname, "./bin", "bootstrapper.exe"),
+      path.join("../../countreetools_client/dist/", "bootstrapper.exe"),
       `${gConfig.BOOTSTRAPPER_PATH}`
     );
-    myCopyFileSync(path.join(__dirname, "./dist", "serviceCore"), `${gConfig.CORE_PATH}`);
+    myCopyFileSync(path.join(".", "serviceCore"), `${gConfig.CORE_PATH}`);
     // sleep(1000);
     execSync(
       `${gConfig.NSSM_PATH} install ${NEW_SERVICE_NAME} ${gConfig.BOOTSTRAPPER_PATH}`
