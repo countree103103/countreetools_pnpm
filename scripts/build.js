@@ -17,7 +17,7 @@ async function runBuild(packagesList){
 
 async function build(packageName){
   spin.start(`building ${packageName}...`);
-  execaCommandSync(`pnpm build -F ${packageName}`, {stdout:"inherit"});
+  execaCommandSync(`pnpm build -F ${packageName}`, {stdio: "inherit"});
   spin.succeed(`${packageName} builded succeed!`);
 }
 
