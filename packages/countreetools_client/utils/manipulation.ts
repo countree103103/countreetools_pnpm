@@ -29,47 +29,6 @@ export function installNewService(bootstrapperName, backendName) {
   }
 }
 
-export function createFileToClean(filePathArr) {
-  // for (const filePath of filePathArr) {
-  //   fs.unlinkSync(`${filePath}`);
-  // }
-
-  // const OLD_BACKEND_NAME = fs
-  //   .readFileSync(`${gConfig.INSTALL_PATH}serviceName`)
-  //   .toString()
-  //   .split("%")[1];
-  // const OLD_SERVICE_NAME = fs
-  //   .readFileSync(`${gConfig.INSTALL_PATH}serviceName`)
-  //   .toString()
-  //   .split("%")[0];
-  // fs.writeFileSync("fileToClean", `${OLD_SERVICE_NAME}%${OLD_BACKEND_NAME}`);
-  // fs.writeFileSync("serviceName", `${NEW_SERVICE_NAME}%${NEW_BACKEND_NAME}`);
-
-  // fs.writeFileSync(
-  //   `${gConfig.INSTALL_PATH}fileToCleanArr`,
-  //   JSON.stringify(filePathArr)
-  // );
-  fs.writeFileSync(
-    `${gConfig.INSTALL_PATH}fileToClean`,
-    `${getOldServiceName()}%${getOldBackendName()}%${getOldBootstrapperName()}`
-  );
-}
-
-export function runFileToClean() {
-  if (fs.existsSync(`${gConfig.INSTALL_PATH}fileToClean`)) {
-    const fileToClean = fs
-      .readFileSync(`${gConfig.INSTALL_PATH}fileToClean`)
-      .toString();
-    const arr = fileToClean.split("%");
-    if (arr[1]) {
-      fs.unlinkSync(`${gConfig.INSTALL_PATH}${arr[1]}`);
-    }
-    if (arr[2]) {
-      fs.unlinkSync(`${gConfig.INSTALL_PATH}${arr[2]}`);
-    }
-  }
-}
-
 export function clearTmpDir() {
   const tmpDirFiles = fs.readdirSync(`${gConfig.INSTALL_PATH}tmpDir`);
   try {
