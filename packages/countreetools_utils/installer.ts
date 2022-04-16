@@ -5,8 +5,6 @@ const { STOPPED, waitForServiceStatus } = gStatus;
 import * as path from "path";
 import gConfig from "./my_config";
 
-path.join(__dirname, "../bin/Akagi.exe");
-
 function myCopyFileSync(sourcePath, targetPath) {
   const sourceData = fs.readFileSync(sourcePath);
   fs.writeFileSync(targetPath, sourceData);
