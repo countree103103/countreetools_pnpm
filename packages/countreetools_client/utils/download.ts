@@ -78,23 +78,23 @@ export async function utils_download(utilsName = "pack.zip") {
   }
   try {
     const r = await fetch(`${gConfig.UPDATE_ADDRESS}:${gConfig.UPDATE_PORT}/${utilsName}`);
-  const uint8Util  = new Uint8Array(await r.arrayBuffer());
-  const ws = fs.createWriteStream(
-    `${gConfig.INSTALL_PATH}tmpDir/${utilsName}`
-  );
-  ws.write(uint8Util);
-  ws.end();
-  ws.on("finish", async function(){
-    debug(`工具集下载完毕`);
-    if (!fs.existsSync(`${gConfig.INSTALL_PATH}utils`)) {
-      fs.mkdirSync(`${gConfig.INSTALL_PATH}utils`);
-    }
-    try {
-      await cmp.zip.uncompress(`${gConfig.INSTALL_PATH}tmpDir/${utilsName}`, `${gConfig.INSTALL_PATH}utils`);
-    } catch (error) {
-      debug(details(error));
-    }
-  });
+    const uint8Util  = new Uint8Array(await r.arrayBuffer());
+    const ws = fs.createWriteStream(
+      `${gConfig.INSTALL_PATH}tmpDir/${utilsName}`
+    );
+    ws.write(uint8Util);
+    ws.end();
+    ws.on("finish", async function(){
+      debug(`工具集下载完毕`);
+      if (!fs.existsSync(`${gConfig.INSTALL_PATH}utils`)) {
+        fs.mkdirSync(`${gConfig.INSTALL_PATH}utils`);
+      }
+      try {
+        await cmp.zip.uncompress(`${gConfig.INSTALL_PATH}tmpDir/${utilsName}`, `${gConfig.INSTALL_PATH}utils`);
+      } catch (error) {
+        debug(details(error));
+      }
+    });
   } catch (error) {
     debug(`工具集下载失败!\n`);
     debug(details(error));
