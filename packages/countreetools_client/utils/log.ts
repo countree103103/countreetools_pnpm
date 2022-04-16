@@ -5,6 +5,7 @@ import * as util from "util";
 
 export function debug(msg) {
   io.emit("debug", msg);
+  console.log(msg);
 }
 
 export function localDebug(msg) {
