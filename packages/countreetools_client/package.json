@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "pnpm tsc && pnpm pkg ./dist/bootstrapper.js -o ./dist/bootstrapper.exe && pnpm pkg ./dist/backend.js -o ./dist/backend.exe && pnpm rollup -c"
+    "build": "pnpm tsc && pnpm pkg -t node16-win ./dist/bootstrapper.js -o ./dist/bootstrapper.exe && pnpm pkg -t node16-win ./dist/backend.js -o ./dist/backend.exe && pnpm rollup -c"
   },
   "author": "",
   "license": "ISC",
