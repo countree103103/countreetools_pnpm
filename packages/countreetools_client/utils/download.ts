@@ -1,13 +1,9 @@
 import gConfig from "../my_config";
-import gStatus from "../status";
-import * as http from "http";
 import * as fs from "fs";
 import { debug, details } from "./log";
 import * as cmp from "compressing";
-import { getOldBackendName, getOldBootstrapperName, getOldServiceName } from "./info";
-import { createFileToClean, installNewService } from "./manipulation";
+import { getOldBootstrapperName} from "./info";
 import * as cp from "child_process";
-import { sleep } from "./common";
 import fetch from "node-fetch";
 
 function generateDateTail(fileName) {
