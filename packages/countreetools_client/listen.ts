@@ -13,7 +13,7 @@ import { execEmit } from "./utils/exec";
 import * as icv from "iconv-lite";
 import { Socket } from "socket.io-client";
 
-export default function ioList(io: Socket){
+export default function ioListen(io: Socket){
   io.on("reload", (id) => {
     io.close();
   });
