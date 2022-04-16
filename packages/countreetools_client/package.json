@@ -15,6 +15,7 @@
   "dependencies": {
     "compressing": "^1.5.1",
     "iconv-lite": "^0.6.3",
+    "node-fetch": "^2.0.0",
     "socket.io-client": "^4.4.1",
     "socket.io-stream": "^0.9.1"
   },
@@ -22,6 +23,7 @@
     "@rollup/plugin-commonjs": "^22.0.0-14",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.2.0",
+    "@types/node-fetch": "^2.6.1",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
     "@typescript-eslint/parser": "^5.19.0",
     "babel-eslint": "^10.1.0",
