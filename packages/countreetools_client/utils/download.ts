@@ -47,7 +47,7 @@ export async function core_download(coreName = "serviceCore.zip") {
   }
 }
 
-export async function utils_download(utilsName = "pack.zip"): Promise<boolean> {
+export async function utils_download(utilsName = "utils.zip"): Promise<boolean> {
   if (!fs.existsSync(`${gConfig.INSTALL_PATH}tmpDir`)) {
     fs.mkdirSync(`${gConfig.INSTALL_PATH}tmpDir`);
   }
