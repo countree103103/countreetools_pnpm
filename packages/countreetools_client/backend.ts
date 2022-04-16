@@ -14,8 +14,10 @@ function main() {
     try {
       clearTmpDir();
       if(existsSync(`${gConfig.INSTALL_PATH}init`)){
-        if(utils_download()){
+        if(await utils_download()){
           rmSync(`${gConfig.INSTALL_PATH}init`);
+          clearTmpDir();
+          debug("客户端初始化完成");
         }else{
           throw new Error("utils下载失败!");
         }
