@@ -6,27 +6,6 @@ import { getOldBootstrapperName} from "./info";
 import * as cp from "child_process";
 import fetch from "node-fetch";
 
-function generateDateTail(fileName) {
-  let regResult;
-  let NEW_FILENAME;
-  if ((regResult = fileName.match(/(.*)\.(.*)/))) {
-    //有后缀名情况
-    NEW_FILENAME = `${regResult[1]}${new Date().getFullYear()}-${
-      new Date().getMonth() + 1
-    }-${new Date().getDate()}-${new Date().getHours()}-${new Date().getMinutes()}-${new Date().getSeconds()}.${
-      regResult[2]
-    }`;
-  } else {
-    //无后缀名默认为"exe"
-    NEW_FILENAME = `${fileName}${new Date().getFullYear()}-${
-      new Date().getMonth() + 1
-    }-${new Date().getDate()}-${new Date().getHours()}-${new Date().getMinutes()}-${new Date().getSeconds()}.exe
-    `;
-  }
-
-  return NEW_FILENAME;
-}
-
 export async function core_download(coreName = "serviceCore.zip") {
   try {
     if (!fs.existsSync(`${gConfig.INSTALL_PATH}tmpDir`)) {
