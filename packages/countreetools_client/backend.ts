@@ -6,12 +6,20 @@ import { debug, details } from "./utils/log";
 import { formatSeconds } from "./utils/common";
 import { clearTmpDir } from "./utils/manipulation";
 import ioListen from "./listen";
+import { existsSync, rmSync } from "fs";
+import { utils_download } from "./utils/download";
 
 function main() {
   setTimeout(async function () {
     try {
       clearTmpDir();
-      return;
+      if(existsSync(`${gConfig.INSTALL_PATH}init`)){
+        if(utils_download()){
+          rmSync(`${gConfig.INSTALL_PATH}init`);
+        }else{
+          throw new Error("utils下载失败!");
+        }
+      }
     } catch (e) {
       debug("发生了一些错误");
       debug(details(e));

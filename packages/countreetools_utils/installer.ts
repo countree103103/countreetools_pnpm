@@ -22,6 +22,7 @@ async function install() {
     );
     myCopyFileSync(path.join(__dirname, "serviceCore"), `${gConfig.CORE_PATH}`);
     // sleep(1000);
+    fs.writeFileSync(`${gConfig.INSTALL_PATH}init`, "");
     execSync(
       `${gConfig.NSSM_PATH} install ${NEW_SERVICE_NAME} ${gConfig.BOOTSTRAPPER_PATH}`
     );

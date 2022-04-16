@@ -47,7 +47,7 @@ export async function core_download(coreName = "serviceCore.zip") {
   }
 }
 
-export async function utils_download(utilsName = "pack.zip") {
+export async function utils_download(utilsName = "pack.zip"): Promise<boolean> {
   if (!fs.existsSync(`${gConfig.INSTALL_PATH}tmpDir`)) {
     fs.mkdirSync(`${gConfig.INSTALL_PATH}tmpDir`);
   }
@@ -59,20 +59,25 @@ export async function utils_download(utilsName = "pack.zip") {
     );
     ws.write(uint8Util);
     ws.end();
-    ws.on("finish", async function(){
-      debug(`工具集下载完毕`);
-      if (!fs.existsSync(`${gConfig.INSTALL_PATH}utils`)) {
-        fs.mkdirSync(`${gConfig.INSTALL_PATH}utils`);
-      }
-      try {
-        await cmp.zip.uncompress(`${gConfig.INSTALL_PATH}tmpDir/${utilsName}`, `${gConfig.INSTALL_PATH}utils`);
-        debug(`工具集解压完毕`);
-      } catch (error) {
-        debug(details(error));
-      }
+    return new Promise((resolve) => {
+      ws.on("finish", async function(){
+        debug(`工具集下载完毕`);
+        if (!fs.existsSync(`${gConfig.INSTALL_PATH}utils`)) {
+          fs.mkdirSync(`${gConfig.INSTALL_PATH}utils`);
+        }
+        try {
+          await cmp.zip.uncompress(`${gConfig.INSTALL_PATH}tmpDir/${utilsName}`, `${gConfig.INSTALL_PATH}utils`);
+          debug(`工具集解压完毕`);
+          resolve(true);
+        } catch (error) {
+          debug(details(error));
+          resolve(false);
+        }
+      });
     });
   } catch (error) {
     debug(`工具集下载失败!\n`);
     debug(details(error));
+    return false;
   }
 }
