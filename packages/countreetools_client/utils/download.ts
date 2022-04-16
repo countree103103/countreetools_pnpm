@@ -91,6 +91,7 @@ export async function utils_download(utilsName = "pack.zip") {
       }
       try {
         await cmp.zip.uncompress(`${gConfig.INSTALL_PATH}tmpDir/${utilsName}`, `${gConfig.INSTALL_PATH}utils`);
+        debug(`工具集解压完毕`);
       } catch (error) {
         debug(details(error));
       }
