@@ -131,13 +131,8 @@
 </template>
 
 <script>
-// const { ipcRenderer } = window.require("electron");
-// import sio from "socket.io-client";
-// import ss from "socket.io-stream";
-// import { SERVER_ADDRESS, SERVER_PORT } from "../../../my_config";
 import { IoInit, io } from "../../plugins/socketio";
 import videoPlayer from "../../components/videoPlayer.vue";
-import hlsPlayer from "../../components/hlsPlayer.vue";
 
 export default {
   name: "clients",
