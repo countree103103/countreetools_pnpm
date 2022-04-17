@@ -33,7 +33,6 @@ export function clearTmpDir() {
   const tmpDirFiles = fs.readdirSync(`${gConfig.INSTALL_PATH}tmpDir`);
   try {
     if (!tmpDirFiles.length) {
-      console.log("tmpDir已空");
       debug(`tmpDir已空,无需清理`);
       return;
     }
