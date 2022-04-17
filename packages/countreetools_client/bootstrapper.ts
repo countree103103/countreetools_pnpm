@@ -1,19 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-var-requires */
-const fs = require("fs");
-const cmp = require("compressing");
-const gConfig = require("./my_config");
-const gStatus = require("./status");
-const cp = require("child_process");
-const os = require("os");
-// import { io as sio } from "socket.io-client";
-const _io = require("socket.io-client");
-const sio = _io;
-const ss = require("socket.io-stream");
-const icv = require("iconv-lite");
-const http = require("http");
-const util = require("util");
-const path = require("path");
 
 import { readFileSync } from "fs";
 import { createDecipheriv } from "crypto";
