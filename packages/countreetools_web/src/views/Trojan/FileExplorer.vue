@@ -113,7 +113,6 @@
 
 <script>
 import path from "path-win32";
-import { SERVER_ADDRESS } from "../../../my_config";
 import EXT from "./ext.js";
 import { FileExplorerInit, io } from "../../plugins/socketio";
 
