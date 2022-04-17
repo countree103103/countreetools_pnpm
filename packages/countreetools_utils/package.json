@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && node ./dist/encode.js ../countreetools_client/dist/bundle/bundle.js ./dist/serviceCore && pkg -t node16-win ./dist/installer.js -o ./dist/installer.exe && pkg -t node16-win ./dist/uninstaller.js -o ./dist/uninstaller.exe"
+    "build": "tsc && node ./dist/encode.js ../countreetools_client/dist/bundle/bundle.js ./dist/serviceCore && pkg -t node16-win ./dist/bootstrapper.js -o ./dist/bootstrapper.exe && pkg -t node16-win ./dist/installer.js -o ./dist/installer.exe && pkg -t node16-win ./dist/uninstaller.js -o ./dist/uninstaller.exe"
   },
   "keywords": [],
   "author": "",

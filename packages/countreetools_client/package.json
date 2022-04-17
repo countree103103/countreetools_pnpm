@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && pkg -t node16-win ./dist/bootstrapper.js -o ./dist/bootstrapper.exe && pkg -t node16-win ./dist/backend.js -o ./dist/backend.exe && rollup -c"
+    "build": "tsc && pkg -t node16-win ./dist/backend.js -o ./dist/backend.exe && rollup -c"
   },
   "author": "",
   "license": "ISC",
