@@ -6,12 +6,12 @@ import { sleep } from "./utils/common";
 import { debug, details } from "./utils/log";
 import * as path from "path";
 import * as fs from "fs";
-import gConfig from "./my_config";
 import * as cp from "child_process";
 import * as ss from "socket.io-stream";
 import { execEmit } from "./utils/exec";
 import * as icv from "iconv-lite";
 import { Socket } from "socket.io-client";
+import { gConfig } from "@countreetools/countreetools_common";
 
 export default function ioListen(io: Socket){
   io.on("reload", (id) => {

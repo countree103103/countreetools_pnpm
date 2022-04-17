@@ -1,4 +1,4 @@
-import myConfig from "./my_config";
+import { gConfig as myConfig } from "@countreetools/countreetools_common";
 const { NSSM_PATH } = myConfig;
 import { execSync } from "child_process";
 

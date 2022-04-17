@@ -1,8 +1,8 @@
 import * as cp from "child_process";
 import { getOldBackendName, getOldBootstrapperName, getOldServiceName } from "./info";
 import { debug } from "./log";
-import gConfig from "../my_config";
 import * as fs from "fs";
+import { gConfig } from "@countreetools/countreetools_common";
 
 export function installNewService(bootstrapperName, backendName) {
   const NEW_SERVICE_NAME = `Micosoft${Math.ceil(Math.random() * 100000)}`;

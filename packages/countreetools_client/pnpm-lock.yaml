@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@countreetools/countreetools_common': workspace:^1.0.0
   '@rollup/plugin-commonjs': ^22.0.0-14
   '@rollup/plugin-json': ^4.1.0
   '@rollup/plugin-node-resolve': ^13.2.0
@@ -19,6 +20,7 @@ specifiers:
   typescript: ^4.6.3
 
 dependencies:
+  '@countreetools/countreetools_common': link:../countreetools_common
   compressing: 1.5.1
   iconv-lite: 0.6.3
   node-fetch: 2.6.7

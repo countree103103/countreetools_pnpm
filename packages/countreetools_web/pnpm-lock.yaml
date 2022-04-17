@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@countreetools/countreetools_common': workspace:^1.0.0
   '@vue/cli-plugin-babel': ~4.5.0
   '@vue/cli-plugin-eslint': ~4.5.0
   '@vue/cli-plugin-router': ~4.5.0
@@ -35,6 +36,7 @@ specifiers:
   vuex: ^3.4.0
 
 dependencies:
+  '@countreetools/countreetools_common': link:../countreetools_common
   compressing: 1.5.1
   core-js: 3.21.1
   hls.js: 1.1.5

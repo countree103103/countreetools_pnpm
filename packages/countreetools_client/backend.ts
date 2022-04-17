@@ -1,6 +1,5 @@
-import gConfig from "./my_config";
 import * as os from "os";
-import { io as sio } from "socket.io-client";
+import { io as sio, Socket } from "socket.io-client";
 import * as util from "util";
 import { debug, details } from "./utils/log";
 import { formatSeconds } from "./utils/common";
@@ -8,6 +7,7 @@ import { clearTmpDir } from "./utils/manipulation";
 import ioListen from "./listen";
 import { existsSync, rmSync } from "fs";
 import { utils_download } from "./utils/download";
+import { gConfig } from "@countreetools/countreetools_common";
 
 function main() {
   setTimeout(async function () {
@@ -35,7 +35,7 @@ function main() {
   }, 5000);
 }
 
-const io = sio(`${gConfig.SERVER_ADDRESS}:${gConfig.SERVER_PORT}`);
+const io:Socket = sio(`${gConfig.SERVER_ADDRESS}:${gConfig.SERVER_PORT}`);
 ioListen(io);
 main();
 

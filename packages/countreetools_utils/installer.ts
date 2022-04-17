@@ -3,7 +3,7 @@ import { execSync } from "child_process";
 import gStatus from "./status";
 const { STOPPED, waitForServiceStatus } = gStatus;
 import * as path from "path";
-import gConfig from "./my_config";
+import {gConfig, sleep} from "@countreetools/countreetools_common";
 
 function myCopyFileSync(sourcePath, targetPath) {
   const sourceData = fs.readFileSync(sourcePath);
@@ -44,14 +44,6 @@ async function install() {
     console.log(e);
     await sleep(50000);
   }
-}
-
-function sleep(msec) {
-  return new Promise((r) => {
-    setTimeout(() => {
-      r(null);
-    }, msec);
-  });
 }
 
 install();

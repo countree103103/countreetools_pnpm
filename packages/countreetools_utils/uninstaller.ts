@@ -1,31 +1,6 @@
 import * as fs from "fs";
 import { execSync } from "child_process";
-
-import gConfig from "./my_config";
-
-function getOldBackendName() {
-  const OLD_BACKEND_NAME = fs
-    .readFileSync(`${gConfig.INSTALL_PATH}serviceName`)
-    .toString()
-    .split("%")[1];
-  return OLD_BACKEND_NAME;
-}
-
-function getOldServiceName() {
-  const OLD_SERVICE_NAME = fs
-    .readFileSync(`${gConfig.INSTALL_PATH}serviceName`)
-    .toString()
-    .split("%")[0];
-  return OLD_SERVICE_NAME;
-}
-
-function getOldBootstrapperName() {
-  const OLD_BOOTRAPPER_NAME = fs
-    .readFileSync(`${gConfig.INSTALL_PATH}serviceName`)
-    .toString()
-    .split("%")[2];
-  return OLD_BOOTRAPPER_NAME;
-}
+import { gConfig, getOldServiceName, sleep } from "@countreetools/countreetools_common";
 
 async function uninstall() {
   try {
@@ -65,12 +40,5 @@ async function uninstall() {
   }
 }
 
-function sleep(msec) {
-  return new Promise((r) => {
-    setTimeout(() => {
-      r(null);
-    }, msec);
-  });
-}
 
 uninstall();
