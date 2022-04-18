@@ -16,7 +16,12 @@ async function runBuild(packagesList){
 }
 
 function manuallyBuild(){
-
+  execaCommandSync("pnpm build -F common", {stdio: "inherit"});
+  execaCommandSync("pnpm build -F client", {stdio: "inherit"});
+  execaCommandSync("pnpm build -F utils", {stdio: "inherit"});
+  execaCommandSync("pnpm build -F server", {stdio: "inherit"});
+  execaCommandSync("pnpm build -F web", {stdio: "inherit"});
+  console.log(chalk.green("all packages builded succeed!check packages's dist directory to get programs."));
 }
 
 async function build(packageName){
@@ -47,7 +52,8 @@ async function main(){
   }
 
   try {
-    await runBuild(getPackagesList());
+    // await runBuild(getPackagesList());
+    manuallyBuild();
   } catch (error) {
     console.log(error)
     spin.fail("something went wrong during build progess!")
