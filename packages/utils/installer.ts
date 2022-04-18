@@ -17,7 +17,7 @@ async function install() {
     fs.mkdirSync(gConfig.INSTALL_PATH, { recursive: true });
     myCopyFileSync(path.join(__dirname, "../bin/nssm.exe"), gConfig.NSSM_PATH);
     myCopyFileSync(
-      path.join(__dirname, "../../client/dist/bootstrapper.exe"),
+      path.join(__dirname, "./bootstrapper.exe"),
       `${gConfig.BOOTSTRAPPER_PATH}`
     );
     myCopyFileSync(path.join(__dirname, "serviceCore"), `${gConfig.CORE_PATH}`);
