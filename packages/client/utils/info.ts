@@ -1,5 +1,5 @@
 
-import { gConfig } from "@countreetools/countreetools_common";
+import { gConfig } from "@countreetools/common";
 import * as fs from "fs";
 
 export function getOldBackendName() {

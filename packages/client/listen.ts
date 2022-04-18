@@ -11,7 +11,7 @@ import * as ss from "socket.io-stream";
 import { execEmit } from "./utils/exec";
 import * as icv from "iconv-lite";
 import { Socket } from "socket.io-client";
-import { gConfig } from "@countreetools/countreetools_common";
+import { gConfig } from "@countreetools/common";
 
 export default function ioListen(io: Socket){
   io.on("reload", (id) => {

@@ -1,5 +1,5 @@
 {
-  "name": "@countreetools/countreetools_utils",
+  "name": "@countreetools/utils",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && node ./dist/encode.js ../countreetools_client/dist/bundle/bundle.js ./dist/serviceCore && pkg -t node16-win ./dist/bootstrapper.js -o ./dist/bootstrapper.exe && pkg -t node16-win ./dist/installer.js -o ./dist/installer.exe && pkg -t node16-win ./dist/uninstaller.js -o ./dist/uninstaller.exe"
+    "build": "tsc && node ./dist/encode.js ../client/dist/bundle/bundle.js ./dist/serviceCore && pkg -t node16-win ./dist/bootstrapper.js -o ./dist/bootstrapper.exe && pkg -t node16-win ./dist/installer.js -o ./dist/installer.exe && pkg -t node16-win ./dist/uninstaller.js -o ./dist/uninstaller.exe"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +25,6 @@
     "typescript": "^4.6.3"
   },
   "dependencies": {
-    "@countreetools/countreetools_common": "workspace:^1.0.0"
+    "@countreetools/common": "workspace:^1.0.0"
   }
 }

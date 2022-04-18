@@ -15,6 +15,10 @@ async function runBuild(packagesList){
   console.log(chalk.green("all packages builded succeed!check packages's dist directory to get programs."));
 }
 
+function manuallyBuild(){
+
+}
+
 async function build(packageName){
   spin.start(`building ${packageName}...`);
   execaCommandSync(`pnpm build -F ${packageName}`, {stdio: "inherit"});

@@ -1,7 +1,14 @@
-import { gConfig as myConfig } from "@countreetools/countreetools_common";
+import { gConfig as myConfig } from "@countreetools/common";
 const { NSSM_PATH } = myConfig;
 import { execSync } from "child_process";
-import { sleep } from "./utils/common";
+
+function sleep(msec) {
+  return new Promise((r) => {
+    setTimeout(() => {
+      r(null);
+    }, msec);
+  });
+}
 
 const obj = {
   getRunningServices() {

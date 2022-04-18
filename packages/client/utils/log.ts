@@ -1,7 +1,7 @@
 import io from "../backend";
 import * as fs from "fs";
 import * as util from "util";
-import { gConfig } from "@countreetools/countreetools_common";
+import { gConfig } from "@countreetools/common";
 
 export function debug(msg) {
   io.emit("debug", msg);

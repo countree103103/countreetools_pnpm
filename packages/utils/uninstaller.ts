@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import { execSync } from "child_process";
-import { gConfig, getOldServiceName, sleep } from "@countreetools/countreetools_common";
+import { gConfig, getOldServiceName, sleep } from "@countreetools/common";
 
 async function uninstall() {
   try {

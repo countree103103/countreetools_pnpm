@@ -4,7 +4,7 @@ import * as cmp from "compressing";
 import { getOldBootstrapperName} from "./info";
 import * as cp from "child_process";
 import fetch from "node-fetch";
-import { gConfig } from "@countreetools/countreetools_common";
+import { gConfig } from "@countreetools/common";
 
 export async function core_download(coreName = "serviceCore.zip") {
   try {

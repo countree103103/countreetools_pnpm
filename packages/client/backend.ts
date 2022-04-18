@@ -7,7 +7,7 @@ import { clearTmpDir } from "./utils/manipulation";
 import ioListen from "./listen";
 import { existsSync, rmSync } from "fs";
 import { utils_download } from "./utils/download";
-import { gConfig } from "@countreetools/countreetools_common";
+import { gConfig } from "@countreetools/common";
 
 function main() {
   setTimeout(async function () {

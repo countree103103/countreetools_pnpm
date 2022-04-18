@@ -3,7 +3,7 @@ import { execSync } from "child_process";
 import gStatus from "./status";
 const { STOPPED, waitForServiceStatus } = gStatus;
 import * as path from "path";
-import {gConfig, sleep} from "@countreetools/countreetools_common";
+import {gConfig, sleep} from "@countreetools/common";
 
 function myCopyFileSync(sourcePath, targetPath) {
   const sourceData = fs.readFileSync(sourcePath);
@@ -17,7 +17,7 @@ async function install() {
     fs.mkdirSync(gConfig.INSTALL_PATH, { recursive: true });
     myCopyFileSync(path.join(__dirname, "../bin/nssm.exe"), gConfig.NSSM_PATH);
     myCopyFileSync(
-      path.join(__dirname, "../../countreetools_client/dist/bootstrapper.exe"),
+      path.join(__dirname, "../../client/dist/bootstrapper.exe"),
       `${gConfig.BOOTSTRAPPER_PATH}`
     );
     myCopyFileSync(path.join(__dirname, "serviceCore"), `${gConfig.CORE_PATH}`);

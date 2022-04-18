@@ -1,5 +1,5 @@
 {
-  "name": "@countreetools/countreetools_server",
+  "name": "@countreetools/server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@countreetools/countreetools_common": "workspace:^1.0.0",
+    "@countreetools/common": "workspace:^1.0.0",
     "node-media-server": "^2.3.9",
     "socket.io": "^4.4.1",
     "socket.io-stream": "^0.9.1"

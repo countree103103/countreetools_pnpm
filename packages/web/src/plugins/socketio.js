@@ -1,6 +1,6 @@
 import sio from "socket.io-client";
 import ss from "socket.io-stream";
-import {gConfig} from "@countreetools/countreetools_common"
+import {gConfig} from "@countreetools/common"
 const { SERVER_ADDRESS, SERVER_PORT } = gConfig;
 
 const io = sio(`${SERVER_ADDRESS}:${SERVER_PORT}/admin`, {

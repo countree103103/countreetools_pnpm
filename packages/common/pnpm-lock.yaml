@@ -1,11 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@countreetools/countreetools_common': workspace:^1.0.0
   typescript: ^4.6.3
-
-dependencies:
-  '@countreetools/countreetools_common': 'link:'
 
 devDependencies:
   typescript: 4.6.3
