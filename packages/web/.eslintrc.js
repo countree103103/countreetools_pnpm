@@ -21,9 +21,4 @@ module.exports = {
     "endOfLine": "off"
   },
 
-  'extends': [
-    'plugin:vue/essential',
-    'eslint:recommended',
-    '@vue/prettier'
-  ]
 };
