@@ -6,7 +6,7 @@ module.exports = {
   env: {
     node: true,
   },
-  ignorePatterns: ["./packages/common", "dist/", "node_modules/"],
+  ignorePatterns: ["dist/", "node_modules/"],
   extends: [
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",

@@ -7,6 +7,8 @@ module.exports = {
 
   extends: ["plugin:vue/essential", "eslint:recommended", "@vue/prettier"],
 
+  ignorePatterns: ["../common"],
+
   parserOptions: {
     parser: 'babel-eslint',
   },
