@@ -7,10 +7,10 @@ specifiers:
   typescript: ^4.6.3
 
 dependencies:
+  '@countreetools/client': link:../client
   '@countreetools/common': link:../common
 
 devDependencies:
-  '@countreetools/client': link:../client
   pkg: 5.6.0
   typescript: 4.6.3
 
