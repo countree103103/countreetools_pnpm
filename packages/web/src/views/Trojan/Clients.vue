@@ -33,37 +33,11 @@
           </v-btn-toggle>
         </v-menu>
       </v-container>
-      <v-container>
-        <v-alert
-          transition="slide-x-transition"
-          style="
-            position: fixed;
-            right: 0;
-            z-index: 999;
-            bottom: 10px;
-            border: 1px white solid;
-          "
-          dismissible
-          close-icon="fa-close"
-          v-model="screenshot.show"
-          ><v-img
-            :src="screenshot.src"
-            :aspect-ratio="screenshot.ratio"
-            :width="screenshot.width"
-            @click="
-              screenshot.width == '70vw'
-                ? (screenshot.width = '30vw')
-                : (screenshot.width = '70vw')
-            "
-            ><template v-slot:placeholder>
-              <v-row class="fill-height ma-0" align="center" justify="center">
-                <v-progress-circular
-                  indeterminate
-                  color="grey lighten-5"
-                ></v-progress-circular>
-              </v-row> </template></v-img
-        ></v-alert>
-      </v-container>
+      <!-- <v-container>
+        <viewer class="viewer">
+          <img :src="screenshot.src" />
+        </viewer>
+      </v-container> -->
       <v-container style="overflow: auto; height: 70vh">
         <v-item-group v-model="selectedIndex">
           <template v-for="i in clientArr">

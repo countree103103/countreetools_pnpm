@@ -1,6 +1,6 @@
 import sio from "socket.io-client";
 import ss from "socket.io-stream";
-import {gConfig} from "@countreetools/common"
+import { gConfig } from "@countreetools/common";
 const { SERVER_ADDRESS, SERVER_PORT } = gConfig;
 
 const io = sio(`${SERVER_ADDRESS}:${SERVER_PORT}/admin`, {
@@ -28,9 +28,14 @@ function IoInit(_this) {
     console.log(cmdresult);
   });
 
-  io.on("apigetscreenshot", (imgbase64) => {
-    _this.screenshot.src = `data:image/jpg;base64,${imgbase64}`;
-    _this.screenshot.show = true;
+  io.on("apigetscreenshot", (imgBuffer) => {
+    let imgBlob = new Blob([imgBuffer], { type: "image/jpeg" });
+    let url = URL.createObjectURL(imgBlob);
+    // _this.screenshot.src = url;
+    // _this.screenshot.src = `data:image/jpg;base64,${imgbase64}`;
+    // _this.screenshot.show = true;
+    _this.$viewerApi({ options: {}, images: [url] });
+    // URL.revokeObjectURL(url);
   });
 
   io.on("apidialog", (dialogContent) => {

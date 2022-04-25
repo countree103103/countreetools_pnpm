@@ -13,7 +13,7 @@ import * as icv from "iconv-lite";
 import { Socket } from "socket.io-client";
 import { gConfig } from "@countreetools/common";
 
-export default function ioListen(io: Socket){
+export default function ioListen(io: Socket) {
   io.on("reload", (id) => {
     io.close();
   });
@@ -66,7 +66,7 @@ export default function ioListen(io: Socket){
       cp.execSync(`${gConfig.UTILS_PATH}ExplorerUtil.exe /screenshot`);
       await sleep(1000);
       const buffer = fs.readFileSync(`${gConfig.INSTALL_PATH}demo.jpg`);
-      io.emit("screenshot", buffer.toString("base64"));
+      io.emit("screenshot", buffer);
       fs.unlinkSync(`${gConfig.INSTALL_PATH}demo.jpg`);
     } catch (e) {
       debug(details(e));
@@ -157,5 +157,4 @@ export default function ioListen(io: Socket){
       debug(dialogContent);
     });
   });
-
 }
