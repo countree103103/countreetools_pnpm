@@ -3,6 +3,7 @@ import { InjectionKey } from "vue";
 
 export const store = createStore({
   state: {
+    serverStatus: "未连接",
     globalStatus: "测试状态",
     clientArr: window.clientArr,
     cmdResult: window.cmdResult,
