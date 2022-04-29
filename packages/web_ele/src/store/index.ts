@@ -5,6 +5,7 @@ const store = createStore({
     globalStatus: "测试状态",
     clientArr: window.clientArr,
     cmdResult: window.cmdResult,
+    selectedClientId: null,
     clients: {
       verify: {
         show: false,
