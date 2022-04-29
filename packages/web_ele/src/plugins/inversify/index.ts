@@ -1,5 +1,5 @@
 import { Container } from "inversify";
-import SocketioManager from "../socketio/Manager";
+import SocketioManager from "@/plugins/socketio";
 
 const container = new Container();
 

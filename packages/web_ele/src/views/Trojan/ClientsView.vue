@@ -14,10 +14,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import ClientCard from "@/components/Trojan/ClientCard.vue";
+import { container } from "@/plugins/inversify";
+import { SocketioManager } from "@/plugins/socketio";
 
 export default defineComponent({
   setup() {
-    null;
+    const manager = container.get<SocketioManager>(SocketioManager);
+    console.log(manager);
   },
   components: { ClientCard },
 });

@@ -1,13 +1,13 @@
 import { io, Socket } from "socket.io-client";
 import gConfig from "@countreetools/common/dist/my_config";
 import { Store } from "vuex";
-import { State, useStore } from "../../store/index";
+import { State, useStore } from "@/store/index";
 import { injectable } from "inversify";
 
 function timeout(millsec: number): Promise<null> {
   return new Promise<null>((_rs, rj) => {
     setTimeout(() => {
-      rj();
+      rj(`${millsec}ms 超时！`);
     }, millsec);
   });
 }
@@ -43,15 +43,15 @@ class SocketioManager {
     });
   }
 
-  public async getScreenshot(): Promise<ArrayBuffer | null> {
+  public async getScreenshot(id: string): Promise<ArrayBuffer | null> {
     const promise = new Promise<ArrayBuffer>((rs, _rj) => {
-      this._socket.once("apiscreenshot", (imgBuffer: ArrayBuffer) => {
+      this._socket.once("apigetscreenshot", (imgBuffer: ArrayBuffer) => {
         rs(imgBuffer);
       });
-      this._socket.emit("apiscreenshot");
+      this._socket.emit("apigetscreenshot", id);
     });
 
-    return Promise.race([promise, timeout(10000)]);
+    return Promise.race([promise, timeout(8000)]);
   }
 }
 
