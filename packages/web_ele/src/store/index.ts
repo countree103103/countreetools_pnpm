@@ -1,11 +1,12 @@
-import { createStore } from "vuex";
+import { createStore, useStore as baseUseStore, Store } from "vuex";
+import { InjectionKey } from "vue";
 
-const store = createStore({
+export const store = createStore({
   state: {
     globalStatus: "测试状态",
     clientArr: window.clientArr,
     cmdResult: window.cmdResult,
-    selectedClientId: null,
+    selectedClientId: "",
     clients: {
       verify: {
         show: false,
@@ -49,10 +50,11 @@ const store = createStore({
   modules: {},
 });
 
-export default createStore({
-  state: {},
-  getters: {},
-  mutations: {},
-  actions: {},
-  modules: {},
-});
+export type State = typeof store.state;
+
+export const key: InjectionKey<Store<State>> = Symbol();
+
+// 定义自己的 `useStore` 组合式函数
+export function useStore() {
+  return baseUseStore(key);
+}
