@@ -3,7 +3,7 @@
     <div>
       <h1>online</h1>
     </div>
-    <div class="h-full flex justify-between flex-col">
+    <div class="h-full flex flex-col">
       <template v-if="$store.state.clientArr?.length">
         <client-card
           v-for="client in $store.state.clientArr"

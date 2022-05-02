@@ -37,6 +37,7 @@ specifiers:
   unplugin-auto-import: ^0.7.1
   unplugin-icons: ^0.14.1
   unplugin-vue-components: ^0.19.3
+  v-viewer: ^3.0.10
   vant: ^3.4.8
   vue: ^3.2.13
   vue-router: ^4.0.3
@@ -84,6 +85,7 @@ devDependencies:
   unplugin-auto-import: 0.7.1
   unplugin-icons: 0.14.1
   unplugin-vue-components: 0.19.3_vue@3.2.33
+  v-viewer: 3.0.10_vue@3.2.33
   vant: 3.4.8_vue@3.2.33
 
 packages:
@@ -7435,6 +7437,16 @@ packages:
     hasBin: true
     dev: true
 
+  /v-viewer/3.0.10_vue@3.2.33:
+    resolution: {integrity: sha512-ZT5sYYS+Cy4z2TP/PuhqPyiK4NonaZzhkDPfiY9bwa5EjGyusO8R7/k/4c1ptvTzx2nBSV9MvQHl2X3XzhANqw==}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      lodash: 4.17.21
+      viewerjs: 1.10.5
+      vue: 3.2.33
+    dev: true
+
   /v8-compile-cache/2.3.0:
     resolution: {integrity: sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==}
     dev: true
@@ -7473,6 +7485,10 @@ packages:
 
   /vfonts/0.0.3:
     resolution: {integrity: sha512-nguyw8L6Un8eelg1vQ31vIU2ESxqid7EYmy8V+MDeMaHBqaRSkg3dTBToC1PR00D89UzS/SLkfYPnx0Wf23IQQ==}
+    dev: true
+
+  /viewerjs/1.10.5:
+    resolution: {integrity: sha512-QwKrmXlSfKg5x4y74F/jicpHIRqBMMfHXyboOxHDi5n4XAaejjpalphPq4/HW6venQAoMiD57HpVwBk0JvqpSA==}
     dev: true
 
   /vooks/0.2.12_vue@3.2.33:

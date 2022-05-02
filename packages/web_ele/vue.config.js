@@ -14,7 +14,11 @@ module.exports = defineConfig({
   configureWebpack: {
     plugins: [
       AutoImport({
-        resolvers: [ElementPlusResolver()],
+        resolvers: [
+          ElementPlusResolver({
+            exclude: new RegExp(/^(?!.*loading-directive).*$/),
+          }),
+        ],
       }),
       Components({
         resolvers: [
