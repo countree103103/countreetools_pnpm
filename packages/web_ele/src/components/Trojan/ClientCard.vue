@@ -17,8 +17,12 @@
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item @click="getScreenshot">截图</el-dropdown-item>
-            <el-dropdown-item>screenshot</el-dropdown-item>
-            <el-dropdown-item>screenshot</el-dropdown-item>
+            <el-dropdown-item
+              @click="
+                $router.push({ name: 'ShellView', params: { id: client.id } })
+              "
+              >终端</el-dropdown-item
+            >
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -58,6 +62,17 @@ export default defineComponent({
         cardLoading.value = false;
       }
     }
+
+    async function sendCommand(command: string): Promise<string | false> {
+      try {
+        const result = await manager.sendCommand(props.client.id, command);
+        return result as string;
+      } catch (error) {
+        console.log(error);
+        return false;
+      }
+    }
+
     return { getScreenshot, cardLoading };
   },
 });

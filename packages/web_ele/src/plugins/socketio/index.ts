@@ -53,6 +53,22 @@ class SocketioManager {
 
     return Promise.race([promise, timeout(8000)]);
   }
+
+  public async sendCommand(id: string, command: string, powershell = false) {
+    const promise = new Promise((rs) => {
+      this._socket.once("apisendcmd", (result) => {
+        rs(result.data);
+      });
+
+      if (powershell) {
+        this._socket.emit("apisendcmd", id, `powershell -command "${command}"`);
+      } else {
+        this._socket.emit("apisendcmd", id, command);
+      }
+    });
+
+    return promise;
+  }
 }
 
 export { SocketioManager, SocketioManager as default };

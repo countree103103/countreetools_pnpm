@@ -37,12 +37,12 @@ const routes: Array<RouteRecordRaw> = [
       keepAlive: true, //需要被缓存的组件
     },
   },
-  // {
-  //   path: "/trojan/control/:id",
-  //   name: "Control",
-  //   component: () => import("../views/Trojan/Control.vue"),
-  //   props: true,
-  // },
+  {
+    path: "/trojan/shell/:id",
+    name: "ShellView",
+    component: () => import("../views/Trojan/ShellView.vue"),
+    props: true,
+  },
   // {
   //   path: "/trojan/stream/:id",
   //   name: "Stream",
