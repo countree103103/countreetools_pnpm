@@ -4,25 +4,30 @@
       <h1>online</h1>
     </div>
     <div class="h-full flex justify-between flex-col">
-      <ClientCard></ClientCard>
-      <ClientCard></ClientCard>
-      <ClientCard></ClientCard>
+      <template v-if="$store.state.clientArr?.length">
+        <client-card
+          v-for="client in $store.state.clientArr"
+          :key="client.id"
+          :client="client"
+        ></client-card>
+      </template>
+      <template v-else>
+        <h1>Empty</h1>
+      </template>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import ClientCard from "@/components/Trojan/ClientCard.vue";
 import { container } from "@/plugins/inversify";
 import { SocketioManager } from "@/plugins/socketio";
 
 export default defineComponent({
   setup() {
-    const manager = container.get<SocketioManager>(SocketioManager);
+    const manager = container.resolve(SocketioManager);
     console.log(manager);
   },
-  components: { ClientCard },
 });
 </script>
 

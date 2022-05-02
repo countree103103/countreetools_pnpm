@@ -16,7 +16,11 @@
     "baseUrl": ".",
     "types": [
       "webpack-env",
-      "reflect-metadata"
+      "element-plus/global",
+      "unplugin-icons/types/vue",
+      "naive-ui/volar",
+      "reflect-metadata",
+      "vant"
     ],
     "paths": {
       "@/*": [

@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="shadow-lg flex justify-between">
+    <div class="shadow-lg flex justify-between p-2 rounded-b-lg">
       <h5 class="font-bold">tools</h5>
       <el-button class="mr-2" @click="drawer = true"
-        ><el-icon></el-icon><Menu></Menu
+        ><el-icon> <icon-ic-baseline-menu /></el-icon
       ></el-button>
     </div>
     <el-drawer v-model="drawer">
@@ -15,14 +15,11 @@
       </el-menu>
     </el-drawer>
     <router-view />
-    <!-- <clients-view></clients-view> -->
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import { Location, Menu } from "@element-plus/icons-vue";
-import ClientsView from "./views/Trojan/ClientsView.vue";
 
 export default defineComponent({
   setup() {
@@ -31,11 +28,6 @@ export default defineComponent({
     return {
       drawer,
     };
-  },
-  components: {
-    // Location,
-    Menu,
-    // ClientsView,
   },
 });
 </script>
