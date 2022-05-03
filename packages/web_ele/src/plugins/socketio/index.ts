@@ -43,15 +43,35 @@ class SocketioManager {
     });
   }
 
-  public async getScreenshot(id: string): Promise<ArrayBuffer | null> {
+  public getStatus() {
+    return this._socket.connected;
+  }
+
+  public async getScreenshotArrayBuffer(
+    id: string
+  ): Promise<ArrayBuffer | null> {
     const promise = new Promise<ArrayBuffer>((rs, _rj) => {
-      this._socket.once("apigetscreenshot", (imgBuffer: ArrayBuffer) => {
+      this._socket.once(`apigetscreenshot_${id}`, (imgBuffer: ArrayBuffer) => {
         rs(imgBuffer);
       });
       this._socket.emit("apigetscreenshot", id);
     });
 
     return Promise.race([promise, timeout(8000)]);
+  }
+
+  public async getScreenshotUrl(id: string): Promise<string> {
+    try {
+      const imgBuffer = (await this.getScreenshotArrayBuffer(
+        id
+      )) as ArrayBuffer;
+      const imgBlob = new Blob([imgBuffer], { type: "image/jpeg" });
+      const url = URL.createObjectURL(imgBlob);
+      return url;
+    } catch (error) {
+      console.log(error);
+      return "";
+    }
   }
 
   public async sendCommand(id: string, command: string, powershell = false) {

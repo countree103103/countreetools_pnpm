@@ -14,7 +14,13 @@
         </el-menu-item-group>
       </el-menu>
     </el-drawer>
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <transition>
+        <keep-alive :include="['ClientsView']">
+          <component :is="Component" />
+        </keep-alive>
+      </transition>
+    </router-view>
   </div>
 </template>
 

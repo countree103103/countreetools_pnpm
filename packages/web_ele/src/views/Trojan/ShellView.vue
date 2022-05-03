@@ -54,7 +54,7 @@ export default defineComponent({
         const result = (await manager.sendCommand(
           id,
           input.value,
-          powershellOrCMD
+          powershellOrCMD.value
         )) as string;
         textareaResult.value = textareaResult.value.concat(result);
         proxy?.$nextTick(() => {

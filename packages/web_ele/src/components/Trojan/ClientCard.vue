@@ -4,6 +4,20 @@
       <span>ID:</span> <span>{{ client.id }}</span>
     </template>
     <div class="flex items-start flex-col">
+      <div class="flex justify-start mb-3">
+        <el-image
+          :src="screenshotPreviewUrl"
+          style="height: 100px"
+          @click="refreshScreenshotPreview"
+          v-loading="screenshotLoading"
+        >
+          <template #error>
+            <div class="image-slot">
+              <el-icon><icon-ic-outline-hide-image /></el-icon>
+            </div>
+          </template>
+        </el-image>
+      </div>
       <div>
         <span>主机名: </span><span>{{ client.主机名 }}</span>
       </div>
@@ -13,10 +27,13 @@
     </div>
     <div class="flex justify-end mt-2">
       <el-dropdown>
-        <span>操作</span>
+        <el-button>操作</el-button>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item @click="getScreenshot">截图</el-dropdown-item>
+            <el-dropdown-item @click="showClientDetails"
+              >详细信息</el-dropdown-item
+            >
+            <el-dropdown-item @click="showScreenshot">截图</el-dropdown-item>
             <el-dropdown-item
               @click="
                 $router.push({ name: 'ShellView', params: { id: client.id } })
@@ -34,8 +51,12 @@
 import { container } from "@/plugins/inversify";
 import { SocketioManager } from "@/plugins/socketio";
 import { client } from "@/types/client";
-import { defineComponent, PropType, ref } from "vue";
+import { defineComponent, getCurrentInstance, PropType, ref } from "vue";
 import { api as viewer } from "v-viewer";
+
+import { ElMessage, ElMessageBox } from "element-plus";
+import type { Action } from "element-plus";
+import { Dialog } from "vant";
 
 export default defineComponent({
   props: {
@@ -47,14 +68,35 @@ export default defineComponent({
   setup(props) {
     const manager = container.resolve(SocketioManager);
     const cardLoading = ref(false);
-    async function getScreenshot() {
+    const screenshotPreviewUrl = ref("");
+    const screenshotLoading = ref(false);
+    const proxy = getCurrentInstance()?.proxy;
+
+    setTimeout(() => {
+      refreshScreenshotPreview();
+    }, 0);
+
+    function showClientDetails() {
+      Dialog({ message: JSON.stringify(props.client) });
+    }
+
+    async function refreshScreenshotPreview() {
+      screenshotLoading.value = true;
+      try {
+        screenshotPreviewUrl.value = await manager.getScreenshotUrl(
+          props.client.id
+        );
+      } catch (error) {
+        console.log(error);
+      } finally {
+        screenshotLoading.value = false;
+      }
+    }
+
+    async function showScreenshot() {
       cardLoading.value = true;
       try {
-        let imgBuffer = (await manager.getScreenshot(
-          props.client.id
-        )) as ArrayBuffer;
-        let imgBlob = new Blob([imgBuffer], { type: "image/jpeg" });
-        let url = URL.createObjectURL(imgBlob);
+        const url = await manager.getScreenshotUrl(props.client.id);
         viewer({ options: {}, images: [url] });
         cardLoading.value = false;
       } catch (error) {
@@ -63,17 +105,14 @@ export default defineComponent({
       }
     }
 
-    async function sendCommand(command: string): Promise<string | false> {
-      try {
-        const result = await manager.sendCommand(props.client.id, command);
-        return result as string;
-      } catch (error) {
-        console.log(error);
-        return false;
-      }
-    }
-
-    return { getScreenshot, cardLoading };
+    return {
+      showScreenshot,
+      cardLoading,
+      screenshotPreviewUrl,
+      refreshScreenshotPreview,
+      screenshotLoading,
+      showClientDetails,
+    };
   },
 });
 </script>
