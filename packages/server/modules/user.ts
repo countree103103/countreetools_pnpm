@@ -63,7 +63,7 @@ export default function userIoInit(ios: IOS) {
     });
 
     sk.on("screenshot", (imgBuffer) => {
-      adminIo.emit("apigetscreenshot", imgBuffer);
+      adminIo.emit(`apigetscreenshot_${sk.id}`, imgBuffer);
     });
 
     sk.on("debug", (msg) => {
