@@ -21,6 +21,7 @@
       v-loading="loading"
     ></el-input>
     <textarea
+      disabled
       class="border-2 border-solid border-gray-300 mt-2 rounded-sm w-full"
       rows="9"
       ref="textarea"

@@ -1,26 +1,36 @@
 <template>
-  <div>
-    <div class="shadow-lg flex justify-between p-2 rounded-b-lg">
-      <h5 class="font-bold">tools</h5>
-      <el-button class="mr-2" @click="drawer = true"
+  <div class="h-screen" id="app">
+    <nav
+      class="shadow-lg flex rounded-b-lg items-center"
+      style="height: var(--header-height)"
+    >
+      <h5 class="font-bold ml-4">tools</h5>
+      <el-button class="mr-2 absolute right-0" @click="drawer = true"
         ><el-icon> <icon-ic-baseline-menu /></el-icon
       ></el-button>
-    </div>
-    <el-drawer v-model="drawer">
-      <el-menu>
-        <el-menu-item-group>
-          <el-menu-item>IP</el-menu-item>
-          <el-menu-item>Trojan</el-menu-item>
-        </el-menu-item-group>
-      </el-menu>
-    </el-drawer>
-    <router-view v-slot="{ Component }">
-      <transition>
-        <keep-alive :include="['ClientsView']">
-          <component :is="Component" />
-        </keep-alive>
-      </transition>
-    </router-view>
+    </nav>
+    <aside>
+      <el-drawer v-model="drawer" direction="ttb" :with-header="false">
+        <el-menu>
+          <el-menu-item-group>
+            <el-menu-item>IP</el-menu-item>
+            <el-menu-item>Trojan</el-menu-item>
+          </el-menu-item-group>
+        </el-menu>
+      </el-drawer>
+    </aside>
+    <main
+      style="height: calc(100% - var(--header-height))"
+      class="overflow-scroll"
+    >
+      <router-view v-slot="{ Component }">
+        <transition>
+          <keep-alive :include="['ClientsView']">
+            <component :is="Component" />
+          </keep-alive>
+        </transition>
+      </router-view>
+    </main>
   </div>
 </template>
 
@@ -50,22 +60,6 @@ export default defineComponent({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#header {
-  @apply flex;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  --header-height: 7%;
 }
 </style>

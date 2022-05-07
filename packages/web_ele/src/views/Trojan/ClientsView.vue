@@ -1,5 +1,5 @@
 <template>
-  <div class="py-8 flex justify-between flex-col">
+  <div class="py-8 flex flex-col">
     <h1
       class="mb-3"
       :class="manager.getStatus() ? ['text-green-600'] : ['text-red-600']"
@@ -10,12 +10,13 @@
           : "未连接"
       }}
     </h1>
-    <div class="h-full flex flex-col">
+    <div class="flex flex-col">
       <template v-if="$store.state.clientArr?.length">
         <client-card
           v-for="client in $store.state.clientArr"
           :key="client.id"
           :client="client"
+          class="mb-4"
         ></client-card>
       </template>
       <template v-else>

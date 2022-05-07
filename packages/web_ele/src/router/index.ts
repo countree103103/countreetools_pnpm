@@ -43,6 +43,18 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("../views/Trojan/ShellView.vue"),
     props: true,
   },
+  {
+    path: "/trojan/player/:src",
+    name: "PlayerView",
+    component: () => import("../views/Trojan/PlayerView.vue"),
+    props: true,
+  },
+  {
+    path: "/trojan/fileexplorer/:id",
+    name: "FileExplorerView",
+    component: () => import("../views/Trojan/FileExplorerView.vue"),
+    props: true,
+  },
   // {
   //   path: "/trojan/stream/:id",
   //   name: "Stream",
